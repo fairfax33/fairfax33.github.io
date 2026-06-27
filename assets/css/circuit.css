@@ -85,11 +85,11 @@
 .wire.is-high,
 .product.is-active .wire {
   stroke: var(--wire-live);
-  filter: drop-shadow(0 0 1.5px var(--wire-live));
+  filter: drop-shadow(0 0 0.5px var(--wire-live));
 }
 
 .gate {
-  fill: rgba(255, 255, 255, 0.75);
+  fill: none; /*rgba(255, 255, 255, 0.75);*/
   stroke: var(--wire-idle);
   stroke-width: 2;
   transition: stroke 0.15s ease, fill 0.15s ease, filter 0.15s ease;
@@ -97,8 +97,8 @@
 
 .product.is-active .gate {
   stroke: var(--wire-live);
-  fill: rgba(10, 155, 219, 0.16);
-  filter: drop-shadow(0 0 2px var(--wire-live));
+  fill: none; /*rgba(10, 155, 219, 0.16);*/
+  filter: drop-shadow(0 0 0.5px var(--wire-live));
 }
 
 .dot {
@@ -108,7 +108,7 @@
 
 .product.is-active .dot {
   fill: var(--wire-live);
-  filter: drop-shadow(0 0 1.5px var(--wire-live));
+  filter: drop-shadow(0 0 0.5px var(--wire-live));
 }
 
 .input-pad {
@@ -152,7 +152,6 @@
 }
 
 /* Result hand to the right side of the screen */
-
 .circuit-result {
   position: fixed;
   top: 46%;
