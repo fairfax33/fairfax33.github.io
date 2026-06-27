@@ -1,0 +1,31 @@
+
+:root {
+  /* Text and surfaces */
+  --color-ink: #111314;
+  --color-ink-muted: #6a7075;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f7f8;
+  --color-divider: #e6e8ea;
+
+  /* Quick link button fills */
+  --accent-soft: #cdeee4;
+  --accent-mid: #1ec8b5;
+  --accent-bright: #12c0ee;
+
+  /* Decoder circuit: a resting wire vs. one carrying a logic high */
+  --wire-idle: #25292d;
+  --wire-live: #0a9bdb;
+
+  /* Typography */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --content-max-width: 60rem;
+}

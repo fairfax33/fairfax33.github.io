@@ -1,0 +1,16 @@
+# Directory
+- index.html        #Homepage
+- projects.html     #Projects (highlighted work)
+- resume.html       #Resume
+- blog.html         #General Writing (will fill with blog + commentary posts)
+- contact.html      #Different methods of contact
+  - assets/
+    - css/
+      - variables.css   #Design
+      - base.css        #Reset & shared elements
+      - home.css        #Homepage layout
+      - page.css        #General secondary page layout
+    - fonts/
+    - images/
+    - js/
+      - main.js         #Micro shared behaviour

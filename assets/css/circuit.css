@@ -1,0 +1,220 @@
+
+.ripple-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65vmax;
+  height: 65vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(18, 192, 238, 0.28) 0%,
+    rgba(18, 192, 238, 0.1) 40%,
+    transparent 68%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-expand 9s ease-out infinite;
+}
+
+.ripple:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.ripple:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Circuit Layout */
+
+.circuit {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+  min-height: 540px;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.circuit-board {
+  flex: 2; /* top two thirds */
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  backdrop-filter: blur(2px);
+}
+
+.circuit-schematic {
+  width: 100%;
+  height: 100%;
+  max-width: 420px;
+}
+
+/* Elements for the schematic */
+
+.wire {
+  fill: none;
+  stroke: var(--wire-idle);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke 0.15s ease, filter 0.15s ease;
+}
+
+.wire.is-high,
+.product.is-active .wire {
+  stroke: var(--wire-live);
+  filter: drop-shadow(0 0 1.5px var(--wire-live));
+}
+
+.gate {
+  fill: rgba(255, 255, 255, 0.75);
+  stroke: var(--wire-idle);
+  stroke-width: 2;
+  transition: stroke 0.15s ease, fill 0.15s ease, filter 0.15s ease;
+}
+
+.product.is-active .gate {
+  stroke: var(--wire-live);
+  fill: rgba(10, 155, 219, 0.16);
+  filter: drop-shadow(0 0 2px var(--wire-live));
+}
+
+.dot {
+  fill: var(--wire-idle);
+  transition: fill 0.15s ease, filter 0.15s ease;
+}
+
+.product.is-active .dot {
+  fill: var(--wire-live);
+  filter: drop-shadow(0 0 1.5px var(--wire-live));
+}
+
+.input-pad {
+  fill: var(--color-surface);
+  stroke: var(--wire-idle);
+  stroke-width: 2;
+}
+
+.input-label {
+  fill: var(--color-ink-muted);
+  font: 600 11px var(--font-sans);
+  text-anchor: middle;
+}
+
+.product-number {
+  fill: var(--wire-idle);
+  font: 700 16px var(--font-sans);
+  text-anchor: middle;
+  transition: fill 0.15s ease;
+}
+
+.product.is-active .product-number {
+  fill: var(--wire-live);
+}
+
+/* The bits clocking in at the bottom pads. */
+.feed-bit {
+  fill: var(--wire-live);
+  font: 700 12px var(--font-sans);
+  text-anchor: middle;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.feed-bit.is-fed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Result hand to the right side of the screen */
+
+.circuit-result {
+  position: fixed;
+  top: 46%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  color: var(--wire-live);
+  font: 600 2.6rem var(--font-sans);
+  text-shadow: 0 0 18px rgba(10, 155, 219, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  animation: result-cross 0.45s ease forwards;
+}
+
+@keyframes result-cross {
+  0% {
+    left: 46%;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    left: 80%;
+    opacity: 0;
+  }
+}
+
+/* Navigation buttons (bottom third) */
+
+.circuit-buttons {
+  flex: 1; /* bottom third */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.circuit-button {
+  padding: 0.5rem 1.1rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(9, 60, 80, 0.18);
+  border-radius: 6px;
+  color: var(--color-ink);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.circuit-button:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.circuit-button:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.circuit-button.is-selected {
+  background: var(--wire-live);
+  border-color: var(--wire-live);
+  color: #ffffff;
+}

@@ -1,0 +1,62 @@
+/* Shared foundation: reset, document defaults and elements that appear
+   on more than one page. Page-specific layout lives in home.css / page.css. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Black brand glyphs used in the homepage intro and elsewhere. */
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-link {
+  display: inline-flex;
+  color: var(--color-ink);
+  transition: opacity 0.15s ease;
+}
+
+.social-link:hover {
+  opacity: 0.6;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
