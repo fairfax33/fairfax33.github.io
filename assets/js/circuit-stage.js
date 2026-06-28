@@ -10,11 +10,11 @@ Basically: the buttons arent hardcoded to any of the pages, they are hardcoded t
 */
 
 const PROPAGATION = {
-  feed: 280,
-  invert: 160,
-  decode: 200,
-  settle: 220,
-  emit: 450,
+  feed: 100,
+  invert: 50,
+  decode: 70,
+  settle: 80,
+  emit: 180,
 };
 
 //Drawing coordinates
