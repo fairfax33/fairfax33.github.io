@@ -1,4 +1,5 @@
 **Description**
+
 For page navigation I built a working 3-to-8 binary decoder with 5 outputs wired; each button encodes a number, clicking a button drives its number's bitstream into real inverter +AND gate logic for decoding, which produces a one-hot output that drives the page change.
 
 **Directory Structure**
