@@ -7,13 +7,13 @@ For page navigation I built a working 3-to-8 binary decoder with 5 outputs wired
 - resume.html       #Resume
 - blog.html         #General Writing (will fill with blog + commentary posts)
 - contact.html      #Different methods of contact
-  - assets/
-    - css/
-      - variables.css   #Design
-      - base.css        #Reset & shared elements
-      - home.css        #Homepage layout
-      - page.css        #General secondary page layout
-    - fonts/
-    - images/
-    - js/
-      - main.js         #Micro shared behaviour
+- assets/
+  - css/
+    - variables.css   #Design
+    - base.css        #Reset & shared elements
+    - home.css        #Homepage layout
+    - page.css        #General secondary page layout
+  - fonts/
+  - images/
+  - js/
+    - main.js         #Micro shared behaviour
