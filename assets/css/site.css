@@ -143,7 +143,7 @@ a:focus-visible {
 
 .about h2,
 .about p {
-  font-size: min(4.1cqi, 4.8cqh);
+  font-size: min(3.45cqi, 3.95cqh);
   margin: 0 0 1.13em;
 }
 
@@ -212,10 +212,13 @@ a:focus-visible {
 
 /* Footer */
 
+/* Three equal columns (socials, info, last updated), each centered in its third */
 .site-footer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  justify-items: center;
+  text-align: center;
   gap: 0.75rem clamp(1rem, 2.5vw, 2.4rem);
   padding: clamp(0.75rem, 1vw, 0.9rem) clamp(0rem, 1.15vw, 1.05rem) clamp(1rem, 1.2vw, 1.2rem);
   border-top: var(--rule);
@@ -224,6 +227,7 @@ a:focus-visible {
 .social-links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem clamp(1rem, 2.5vw, 2.4rem);
   margin: 0;
   padding: 0;
@@ -264,5 +268,9 @@ a:focus-visible {
 
   .portrait {
     margin-left: 0;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
   }
 }

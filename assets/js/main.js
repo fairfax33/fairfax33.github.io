@@ -8,3 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//Fills in the footer's "site last updated" date
+document.addEventListener("DOMContentLoaded", function () {
+  const stamp = document.getElementById("last-updated");
+  if (!stamp) return;
+
+  const updated = new Date(document.lastModified);
+  stamp.dateTime = updated.toISOString();
+  stamp.textContent = updated.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+});
