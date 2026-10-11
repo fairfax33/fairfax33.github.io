@@ -1,5 +1,5 @@
 **Description**  
-Personal website, hosted on Pages, written in plain HTML/CSS.
+Personal website, hosted on Pages, written in plain HTML/CSS, developed under the mentorship of my good friend Claude.
 
 **Directory Structure**
 - index.html        #Homepage
