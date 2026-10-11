@@ -33,8 +33,7 @@ const BOARD = {
   gateLeft: 246,
   gateStraight: 16,
   gateRadius: 9,
-  outputEnd: 318,
-  numberX: 330,
+  outputEnd: 340,
 };
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
@@ -136,14 +135,6 @@ function buildProductLine(svg, page, index, total, sources, bitCount) {
     [BOARD.outputEnd, y],
   ]);
 
-  const numberLabel = createSvgElement("text", {
-    x: BOARD.numberX,
-    y: y + 5,
-    class: "product-number",
-  });
-  numberLabel.textContent = page.number;
-  group.appendChild(numberLabel);
-
   //Connection dot wherever this product taps an input line
     //A 1 taps the true line, a 0 taps the complement line
   const taps = codeBits.map((codeBit, bit) => {
@@ -184,8 +175,8 @@ async function runDecodeSequence(button, page) {
   activateProduct(decoded);
   await wait(PROPAGATION.settle);
 
-  //Flash the number to the right side of the screen then swap the page
-  await emitResult(decoded.number);
+  //Swap as soon as the decode settles; the number flies across on its own
+  emitResult(decoded.number);
 
   if (typeof navigateToPage === "function") {
     //swaps the right panel; left stays put
@@ -193,7 +184,7 @@ async function runDecodeSequence(button, page) {
     sequenceIsRunning = false;
   } else {
     //fallback in case the router isn't loaded
-    window.location.href = page.page; 
+    window.location.href = page.page;
   }
 }
 
