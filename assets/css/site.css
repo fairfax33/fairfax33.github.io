@@ -1,0 +1,268 @@
+:root {
+  --color-bg: #d9d9d9;
+  --color-ink: #000000;
+  --rule: 1px solid var(--color-ink);
+
+  --font-sans: "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* Scales down from the 1440px Figma frame */
+  --gutter: clamp(1.25rem, 9vw, 8rem);
+  --size-name: clamp(1.75rem, 2.7vw, 2.4rem);
+  --size-nav: clamp(1rem, 1.4vw, 1.275rem);
+  --size-body: clamp(0.875rem, 1vw, 0.9rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--gutter);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+/* Header */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem 1.25rem;
+  padding: clamp(1.25rem, 2.5vw, 2.25rem) 0 0.4rem;
+  border-bottom: var(--rule);
+}
+
+.site-header__name {
+  font-size: var(--size-name);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0;
+  padding-left: 1.05em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem clamp(1rem, 2.25vw, 2rem);
+  margin-right: clamp(0rem, 2vw, 1.8rem);
+  padding-bottom: 0.35em;
+  font-size: var(--size-nav);
+}
+
+.site-nav a,
+.social-link span {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 150ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"],
+.social-link:hover span {
+  text-decoration-color: currentColor;
+}
+
+/* Main */
+
+.site-main {
+  flex: 1;
+  padding: clamp(1rem, 1.6vw, 1.5rem) 0 clamp(1.25rem, 2vw, 2rem);
+}
+
+.portrait {
+  width: min(15.75rem, 100%);
+  height: auto;
+  aspect-ratio: 453 / 598;
+  object-fit: cover;
+  margin-left: 0.45rem;
+}
+
+/* Homepage: portrait fills 86% of the gap between the rules, centered vertically,
+   with the About Me text beside it */
+.site-main--home {
+  position: relative;
+  min-height: 34rem;
+  padding-block: 0;
+}
+
+.home {
+  position: absolute;
+  inset: 7% 0;
+  display: flex;
+  gap: clamp(2rem, 4.3vw, 3.75rem);
+}
+
+.home .portrait {
+  flex: none;
+  width: auto;
+  height: 100%;
+}
+
+/* Text scales to fill the column beside the portrait without crossing the rules:
+   capped by column width (~42 chars/line) and by height (~20 lines incl. gaps) */
+.about {
+  flex: 1;
+  min-width: 0;
+  container-type: size;
+  line-height: 1.13;
+}
+
+.about h2,
+.about p {
+  font-size: min(4.1cqi, 4.8cqh);
+  margin: 0 0 1.13em;
+}
+
+.about h2 {
+  font-weight: 600;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 60rem) {
+  .site-main--home {
+    min-height: 0;
+    padding-block: 1.5rem 2rem;
+  }
+
+  .home {
+    position: static;
+    flex-direction: column;
+  }
+
+  .home .portrait {
+    width: min(22rem, 100%);
+    height: auto;
+  }
+
+  .about {
+    container-type: normal;
+  }
+
+  .about h2,
+  .about p {
+    font-size: 1.0625rem;
+  }
+}
+
+.page-title {
+  font-size: var(--size-nav);
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
+.prose {
+  max-width: 40rem;
+  font-size: var(--size-body);
+  line-height: 1.45;
+}
+
+.prose p {
+  margin: 0 0 1em;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.resume-frame {
+  width: 100%;
+  height: 80vh;
+  border: var(--rule);
+  background: #ffffff;
+}
+
+/* Footer */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem clamp(1rem, 2.5vw, 2.4rem);
+  padding: clamp(0.75rem, 1vw, 0.9rem) clamp(0rem, 1.15vw, 1.05rem) clamp(1rem, 1.2vw, 1.2rem);
+  border-top: var(--rule);
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem clamp(1rem, 2.5vw, 2.4rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: var(--size-nav);
+}
+
+.social-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+}
+
+.site-footer__info {
+  margin: 0;
+  font-size: var(--size-body);
+  line-height: 1.3;
+}
+
+@media (max-width: 40rem) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    width: 100%;
+    margin-right: 0;
+    gap: 0.25rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .portrait {
+    margin-left: 0;
+  }
+}

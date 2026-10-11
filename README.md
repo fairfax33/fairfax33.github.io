@@ -1,18 +1,15 @@
-when I made this I thought it was so tuff lol
-  
+**Description**  
+Personal website, hosted on GitHub Pages. Plain HTML/CSS with no build step.
+
 **Directory Structure**
 - index.html        #Homepage
+- blog.html         #General Writing
 - projects.html     #Projects (highlighted work)
-- resume.html       #Resume
-- blog.html         #General Writing (will fill with blog + commentary posts)
+- resume.html       #Resume (embedded PDF)
 - contact.html      #Different methods of contact
 - assets/
   - css/
-    - variables.css   #Design
-    - base.css        #Reset & shared elements
-    - home.css        #Homepage layout
-    - page.css        #General secondary page layout
-  - fonts/
-  - images/
+    - site.css      #All styles (colors, type, layout)
+  - images/         #Portrait + resume PDF
   - js/
-    - main.js         #Micro shared behaviour
+    - main.js       #Highlights the current page in the nav
