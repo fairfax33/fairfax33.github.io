@@ -1,5 +1,5 @@
 **Description**  
-Personal website, hosted on GitHub Pages. Plain HTML/CSS with no build step.
+Personal website, hosted on Pages, written in plain HTML/CSS.
 
 **Directory Structure**
 - index.html        #Homepage
@@ -9,7 +9,7 @@ Personal website, hosted on GitHub Pages. Plain HTML/CSS with no build step.
 - contact.html      #Different methods of contact
 - assets/
   - css/
-    - site.css      #All styles (colors, type, layout)
-  - images/         #Portrait + resume PDF
+    - site.css      #Styles used
+  - images/         #Self explanatory
   - js/
     - main.js       #Highlights the current page in the nav
