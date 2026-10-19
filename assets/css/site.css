@@ -126,10 +126,25 @@ a:focus-visible {
   gap: clamp(2rem, 4.3vw, 3.75rem);
 }
 
-.home .portrait {
+.portrait-figure {
   flex: none;
-  width: auto;
   height: 100%;
+  margin: 0;
+}
+
+/* Leaves room under the photo for the caption */
+.home .portrait {
+  display: block;
+  width: auto;
+  height: calc(100% - 1.1rem);
+}
+
+.portrait-figure figcaption {
+  margin-top: 0.15rem;
+  padding-left: 1.05rem;
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.3;
 }
 
 /* Text scales to fill the column beside the portrait without crossing the rules:
@@ -166,8 +181,13 @@ a:focus-visible {
     flex-direction: column;
   }
 
-  .home .portrait {
+  .portrait-figure {
     width: min(22rem, 100%);
+    height: auto;
+  }
+
+  .home .portrait {
+    width: 100%;
     height: auto;
   }
 
