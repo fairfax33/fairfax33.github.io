@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fairfax33.github.io/sitemap.xml
