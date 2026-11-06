@@ -3,7 +3,7 @@ Personal website, hosted on Pages, written in plain HTML/CSS, developed under th
 
 **Directory Structure**
 - index.html        #Homepage
-- blog.html         #General Writing
+- blog.html         #General Writing/Blog
 - projects.html     #Projects (highlighted work)
 - resume.html       #Resume (embedded PDF)
 - contact.html      #Different methods of contact
