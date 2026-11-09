@@ -322,6 +322,17 @@ a:focus-visible {
   background: #ffffff;
 }
 
+/* Formatting for embedded notes files */
+.notes {
+  width: 50vw;
+  height: 620px;
+  border: 1px solid currentColor;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+
 /* Footer */
 
 /* Three equal columns (socials, info, last updated), each centered in its third */
